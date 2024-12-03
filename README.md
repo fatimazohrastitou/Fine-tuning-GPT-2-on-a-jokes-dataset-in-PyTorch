@@ -12,41 +12,32 @@ Dans ce laboratoire, nous avons exploré l'utilisation de modèles pré-entraîn
 5. Évaluation des performances des modèles à l'aide de métriques comme la précision, le rappel, et la BLEU score.
 
 ## Résultats obtenus
-Les modèles fine-tunés ont montré une amélioration dans la génération de texte spécifique à notre domaine. Les métriques de performance ont été évaluées et les résultats ont été satisfaisants, avec un **BLEU score** de 0.78.
-
-## Difficultés rencontrées
-- Problèmes d'incompatibilité de versions de Keras et Transformers, résolus en installant `tf-keras`.
-- Difficulté à ajuster les hyperparamètres pour obtenir des performances optimales.
-
-#Résultats Obtenus
 
 1. Performance du Modèle
 Après avoir fine-tuné le modèle GPT-2 sur notre jeu de données personnalisé, voici les résultats obtenus :
 
-BLEU Score
-Le BLEU score mesure la similarité entre le texte généré par le modèle et le texte de référence. Le score varie de 0 à 100, où un score plus élevé indique que le texte généré est plus proche du texte de référence.
+Métriques de Classification
+Précision (Accuracy) : 0.8
+La précision indique que 80% des prédictions du modèle étaient correctes. C'est un bon indicateur de performance globale, mais cela pourrait être amélioré dans des contextes plus complexes.
 
-BLEU Score obtenu : 0.78
-Ce score indique que le modèle fine-tuné génère un texte assez similaire aux exemples de référence fournis, bien que des améliorations puissent encore être faites pour des textes plus complexes.
+Précision (Precision) : 1.0
+La précision mesure la proportion des prédictions positives qui sont réellement correctes. Une précision de 1.0 signifie que toutes les prédictions positives faites par le modèle étaient correctes, ce qui est un score parfait.
 
-Exemples de Textes Générés
-Voici des exemples de textes générés par le modèle GPT-2 après le fine-tuning :
+Rappel (Recall) : 0.67
+Le rappel mesure la proportion des instances positives réelles que le modèle a correctement identifiées. Un rappel de 0.67 signifie que le modèle a trouvé 67% des vrais positifs. Bien que le modèle ait un bon rappel, il existe encore des opportunités d'amélioration.
 
-Prompt : "The knight looked at the dragon and said"
+Score F1 : 0.8
+Le score F1 est la moyenne harmonique entre la précision et le rappel. Il équilibre les deux métriques et est particulièrement utile lorsque les classes sont déséquilibrées. Un score F1 de 0.8 indique un bon compromis entre précision et rappel.
 
-Texte généré : "The knight looked at the dragon and said, 'I will not back down from this challenge.'"
-Prompt : "In the forest, a wise owl watched over the trees"
+Score BLEU
+Score BLEU : 100
+Le score BLEU est une mesure qui évalue la qualité du texte généré en comparant les n-grammes du texte généré avec ceux du texte de référence. Un score de 100 est parfait, ce qui signifie que le texte généré par le modèle correspond exactement au texte de référence. Cela peut indiquer que le modèle a bien appris à générer un texte similaire à celui attendu. Cependant, un score aussi élevé pourrait aussi indiquer une faible diversité dans les données générées (par exemple, une très forte similitude avec les exemples de référence).
+2. Interprétation des Résultats
+Métriques de Classification :
+Le modèle a bien performé sur la tâche de classification avec une précision élevée (0.8), une précision parfaite pour les prédictions positives (1.0), et un rappel raisonnable (0.67). Le score F1 (0.8) montre un bon équilibre entre précision et rappel. Toutefois, il reste possible d'améliorer le rappel pour identifier davantage de cas positifs.
 
-Texte généré : "In the forest, a wise owl watched over the trees, protecting the creatures that lived within."
-Les textes générés montrent une bonne cohérence avec le prompt, bien qu'il y ait encore de la place pour des ajustements pour augmenter la fluidité et la créativité du texte.
+Score BLEU :
+Le modèle a généré des textes très proches des textes de référence, ce qui se reflète dans le score BLEU de 100. Cela montre une bonne performance pour la génération de texte. Cependant, si le score est trop élevé, cela pourrait suggérer que le modèle se contente de "répéter" les textes de référence plutôt que de générer des textes plus variés et créatifs.
 
-2. Évaluation des Performances
-Outre le BLEU score, d'autres métriques comme la précision, le rappel, et la F1-score peuvent être utilisées pour évaluer la performance des modèles dans des tâches de classification. Ces métriques ne s'appliquent cependant pas directement à des tâches de génération de texte, mais elles seraient utiles dans le cadre d'un projet complet où un modèle hybride de classification et génération est utilisé.
-
-3. Difficultés Rencontrées
-Problèmes de compatibilité des versions : Au début, il y avait des problèmes de compatibilité entre la version de Keras et la bibliothèque Transformers. Ce problème a été résolu en installant la version compatible de tf-keras.
-
-Réglage des hyperparamètres : Trouver les meilleurs hyperparamètres pour le fine-tuning a pris du temps. Le modèle n’a pas généré des résultats optimaux dès le départ, et plusieurs ajustements ont été nécessaires pour parvenir à de bons résultats.
-
-4. Conclusion
-Ce laboratoire m'a permis d'approfondir mes connaissances sur l'utilisation des modèles pré-entraînés pour la génération de texte, particulièrement GPT-2. Le fine-tuning du modèle a montré des résultats prometteurs, avec un BLEU score de 0.78, et le texte généré était cohérent avec le prompt fourni. Cependant, il reste de la place pour des améliorations, notamment dans la créativité du texte généré.
+3. Conclusion
+Le modèle fine-tuné a bien performé, avec un score BLEU élevé et des métriques de classification solides. Bien que les résultats soient très bons, des améliorations peuvent être apportées pour augmenter la diversité des textes générés et améliorer le rappel pour la classification. Ce travail montre que l'utilisation de GPT-2 pour des tâches de génération de texte est efficace lorsque les données d'entraînement sont adaptées.
